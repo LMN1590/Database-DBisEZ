@@ -29,17 +29,6 @@ CREATE TABLE admin (
     foreign key (idtaikhoan) references taikhoan(idtaikhoan)
 );
 
-INSERT INTO admin VALUES (1, 'Chan', 'Danh');
-INSERT INTO admin VALUES (2, 'Hai', 'Que');
-INSERT INTO admin VALUES (3, 'Bu', 'Hu');
-INSERT INTO admin VALUES (4, 'Cau', 'Vang');
-INSERT INTO admin VALUES (5, 'Choi', 'Do');
-INSERT INTO admin VALUES (6, 'Mai', 'Thuy');
-INSERT INTO admin VALUES (7, 'Lee', 'Sanghyeok');
-INSERT INTO admin VALUES (8, 'Tre', 'Nghe');
-INSERT INTO admin VALUES (9, 'Nguyen', 'Tuan');
-INSERT INTO admin VALUES (10, 'Pham', 'Duy');
-
 CREATE TABLE khuyenmaicuahang (
 	idcuama int NOT NULL,
     idcuahang int NOT NULL,
