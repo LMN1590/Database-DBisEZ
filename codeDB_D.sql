@@ -44,3 +44,14 @@ CREATE TABLE khuyenmaihethong (
     primary key (idcuama),
     foreign key (idcuama)  references khuyenmaichung(idcuama)
 );
+
+--cong ty van chuyen chua them primary key va references
+CREATE TABLE congtyvanchuyen
+(
+	congtyvanchuyen VARCHAR(20),
+    IDcongty CHAR(1) NOT NULL,
+    Tencongty TEXT,
+    SDT VARCHAR(10),
+    Email TEXT,
+    Diachi TEXT
+);
