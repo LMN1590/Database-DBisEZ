@@ -8,7 +8,12 @@ CREATE TABLE taikhoan (
     sdt varchar(20) NOT NULL,
     email varchar(100) NOT NULL
 );
-
+CREATE TABLE admin (
+	idtaikhoan int PRIMARY KEY, 
+	ho varchar(20) NOT NULL,
+	ten varchar(20) NOT NULL,
+    foreign key (idtaikhoan) references taikhoan(idtaikhoan)
+);
 CREATE TABLE khuyenmai_chung (
 	idcuama int PRIMARY KEY,
     giatoithieuapdung int NOT NULL,
@@ -22,11 +27,12 @@ CREATE TABLE khuyenmai_chung (
     foreign key (idnguoitaoma) references admin(idtaikhoan)
 );
 
-CREATE TABLE admin (
-	idtaikhoan int PRIMARY KEY, 
-	ho varchar(20) NOT NULL,
-	ten varchar(20) NOT NULL,
-    foreign key (idtaikhoan) references taikhoan(idtaikhoan)
+CREATE TABLE if not exists NhaHang(
+	IDTaiKhoan INT primary key,
+    TenNhaHang VARCHAR(255) NOT NULL,
+    DiaChi VARCHAR(255) NOT NULL,
+    Website VARCHAR(255) NOT NULL,
+    IDQuanLy INT
 );
 
 CREATE TABLE khuyenmaicuahang (
@@ -54,15 +60,9 @@ CREATE TABLE Congtyvanchuyen(
 );
 
 
---Phần của LMN --
+-- Phần của LMN --
 
-CREATE TABLE if not exists NhaHang(
-	IDTaiKhoan INT primary key,
-    TenNhaHang VARCHAR(255) NOT NULL,
-    DiaChi VARCHAR(255) NOT NULL,
-    Website VARCHAR(255) NOT NULL,
-    IDQuanLy INT NOT NULL
-);
+
 
 CREATE TABLE if not exists LoaiMonAn(
 	IDTaiKhoan INT NOT NULL,
@@ -91,14 +91,19 @@ create table if not exists NguyenLieu(
 ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
 alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
 ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
-
+alter table noidung_donhang add foreign key (ID_monan) references monan(IDmonan);
+alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID);
+alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan);
+alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan);
+alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan);
 -----------------------
 
 CREATE TABLE Noidung_donhang(
-   ID_donhang INTEGER  NOT NULL PRIMARY KEY 
+   ID_donhang INTEGER  NOT NULL
   ,ID_monan   INTEGER  NOT NULL
   ,Soluongmon INTEGER  NOT NULL
   ,Giamua     INTEGER  NOT NULL
+  ,primary key(ID_donhang,ID_monan)
 );
 
 CREATE TABLE Hoadon(
@@ -134,4 +139,4 @@ ALTER TABLE Donhang
 ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
 	REFERENCES Congtyvanchuyen(ID)
     ON DELETE CASCADE;
----Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
+--- Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
