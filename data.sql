@@ -100,6 +100,32 @@ INSERT INTO khuyenmaicuahang VALUES (18, 14);
 INSERT INTO khuyenmaicuahang VALUES (19, 20);
 INSERT INTO khuyenmaicuahang VALUES (20, 13);
 
+-- khuyenmaigiamtien
+INSERT INTO khuyenmaigiamtien VALUES (1,150000);
+INSERT INTO khuyenmaigiamtien VALUES (2,50000);
+INSERT INTO khuyenmaigiamtien VALUES (4,75000);
+INSERT INTO khuyenmaigiamtien VALUES (5,10000);
+INSERT INTO khuyenmaigiamtien VALUES (6,30000);
+INSERT INTO khuyenmaigiamtien VALUES (9,20000);
+INSERT INTO khuyenmaigiamtien VALUES (11,10000);
+INSERT INTO khuyenmaigiamtien VALUES (12,25000);
+INSERT INTO khuyenmaigiamtien VALUES (13,12000);
+INSERT INTO khuyenmaigiamtien VALUES (18,15000);
+INSERT INTO khuyenmaigiamtien VALUES (19,50000);
+
+
+-- khuyenmaiphantram
+INSERT INTO khuyenmaiphantram VALUES (3,40, null);
+INSERT INTO khuyenmaiphantram VALUES (7,50,null);
+INSERT INTO khuyenmaiphantram VALUES (8,20,null);
+INSERT INTO khuyenmaiphantram VALUES (10,50, null);
+INSERT INTO khuyenmaiphantram VALUES (14,30, 30000);
+INSERT INTO khuyenmaiphantram VALUES (15,30,30000);
+INSERT INTO khuyenmaiphantram VALUES (16,20, null);
+INSERT INTO khuyenmaiphantram VALUES (17,30, null);
+INSERT INTO khuyenmaiphantram VALUES (20,50, 50000);
+
+
 -- cong ty van chuyen
 INSERT INTO congtyvanchuyen VALUES ('1' , 'GrabFood', '0902348144', 'grabfood@grab.com', 'Tòa nhà Mapletree Business Center, 1060 Nguyễn Văn Linh, phường Tân Phong, quận 7, TPHCM');
 INSERT INTO congtyvanchuyen VALUES ('2' , 'beFood', '1900232345' , 'hotro@be.com.vn', 'Tầng 16, tòa nhà Saigon Tower, 29 Lê Duẩn, phường Bến Nghé, quận 1, TPHCM');
