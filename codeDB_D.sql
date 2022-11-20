@@ -45,18 +45,16 @@ CREATE TABLE khuyenmaihethong (
     foreign key (idcuama)  references khuyenmaichung(idcuama)
 );
 
---cong ty van chuyen chua them primary key va references
-CREATE TABLE congtyvanchuyen
-(
-	congtyvanchuyen VARCHAR(20),
-    IDcongty CHAR(1) NOT NULL,
-    Tencongty TEXT,
-    SDT VARCHAR(10),
-    Email TEXT,
-    Diachi TEXT
+CREATE TABLE Congtyvanchuyen(
+   ID     INTEGER  NOT NULL PRIMARY KEY 
+  ,Ten    VARCHAR(50) NOT NULL
+  ,SDT    INTEGER NOT NULL
+  ,Email  VARCHAR(50) NOT NULL
+  ,Diachi VARCHAR(256) NOT NULL
 );
 
--- Phần của LMN --
+
+--Phần của LMN --
 
 CREATE TABLE if not exists NhaHang(
 	IDTaiKhoan INT primary key,
@@ -95,3 +93,45 @@ alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(i
 ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
 
 -----------------------
+
+CREATE TABLE Noidung_donhang(
+   ID_donhang INTEGER  NOT NULL PRIMARY KEY 
+  ,ID_monan   INTEGER  NOT NULL
+  ,Soluongmon INTEGER  NOT NULL
+  ,Giamua     INTEGER  NOT NULL
+);
+
+CREATE TABLE Hoadon(
+   ID          INTEGER  NOT NULL PRIMARY KEY 
+  ,Phươngthuc  VARCHAR(9) NOT NULL
+  ,Phidonhang  INTEGER  NOT NULL
+  ,Phigiaohang INTEGER  NOT NULL
+  ,ID_donhang  INTEGER  NOT NULL
+);
+
+CREATE TABLE Donhang(
+   ID           INTEGER  NOT NULL PRIMARY KEY 
+  ,Nguoinhan    VARCHAR(50) NOT NULL
+  ,Tinhtrang    VARCHAR(20) NOT NULL
+  ,Ghichu       VARCHAR(256)
+  ,Diachi       VARCHAR(256) NOT NULL
+  ,SDT          INTEGER  NOT NULL
+  ,Taixe_SDT    INTEGER  NOT NULL
+  ,Taixe_Hoten  VARCHAR(50) NOT NULL
+  ,Taixe_Bienso VARCHAR(10) NOT NULL
+  ,Taixe_Tenxe  VARCHAR(30) NOT NULL
+  ,ID_nguoinhan INTEGER  NOT NULL
+  ,ID_congty    INTEGER  NOT NULL
+  ,Ngaydathang  DATE  NOT NULL
+);
+
+ALTER TABLE Hoadon
+ADD CONSTRAINT fk_hoadon_IDdonhang	FOREIGN KEY (ID_donhang)
+	REFERENCES Donhang(ID)
+    ON DELETE CASCADE;
+    
+ALTER TABLE Donhang
+ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
+	REFERENCES Congtyvanchuyen(ID)
+    ON DELETE CASCADE;
+---Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
