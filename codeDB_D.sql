@@ -118,6 +118,12 @@ CREATE TABLE Donhang(
   ,Ngaydathang  DATE  NOT NULL
 );
 
+CREATE TABLE Apdung_khuyenmai(
+    ID_donhang  INTEGER NOT NULL,
+    ID_makhuyenmai  INTEGER NOT NULL,
+    PRIMARY KEY(ID_donhang, ID_makhuyenmai)
+)
+
 ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
 alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
 ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
@@ -126,6 +132,8 @@ alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID);
 alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan);
 alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan);
 alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan);
+alter table Apdung_khuyenmai add foreign key (ID_donhang) references donhang(ID);
+alter table Apdung_khuyenmai add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama);
 -----------------------
 
 ALTER TABLE Hoadon
