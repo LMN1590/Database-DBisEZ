@@ -42,6 +42,17 @@ INSERT INTO admin VALUES (7, 'Lee', 'Sanghyeok');
 INSERT INTO admin VALUES (8, 'Tre', 'Nghe');
 INSERT INTO admin VALUES (9, 'Nguyen', 'Tuan');
 INSERT INTO admin VALUES (10, 'Pham', 'Duy');
+-- khachhang
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(21, 'Nguyen', 'Huong', '2021-10-05', 100 ,'2002-12-05', 'dong');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(22, 'Tran', 'Tam', '2020-09-15', 200 ,'2001-09-15', 'bac');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(23, 'Huynh', 'Vinh', '2019-08-25', 400 , '2000-06-25', 'bac');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(24, 'Kha', 'Sang', '2018-07-07', 50 ,'1999-03-30', 'dong');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(25, 'Nguyen', 'Danh', '2021-06-08', 300 ,'1998-10-20', 'bac');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(26, 'Le', 'Nghia', '2020-05-09', 20 ,'2002-08-10', 'dong');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(27, 'Nguyen', 'Hung', '2019-04-16', 600 ,'2004-06-01', 'vang');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(28, 'Tran', 'Vu', '2018-03-31', 1000 ,'2003-04-11', 'kim cuong');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(29, 'Pham', 'Duy', '2021-02-25', 550 ,'2005-02-21', 'vang');
+INSERT INTO khachhang (IDtaikhoan, Ho, Ten , Ngaytaotaikhoan, Diemtichluy , Ngaysinh , Loaithanhvien) VALUES(30, 'Bui', 'Vinh', '2020-01-08', 250 ,'1996-01-31', 'bac');
 
 -- khuyen mai chung
 INSERT INTO khuyenmai_chung VALUES (1, 1200000, 'Giảm tối đa 150k đơn tối thiểu 1200k', 'COSLUX11', '20/11/2022', '30/11/2022', 100, 81, 1);
