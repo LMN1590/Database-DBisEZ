@@ -33,7 +33,7 @@ CREATE TABLE khuyenmaicuahang (
 	idcuama int NOT NULL,
     idcuahang int NOT NULL,
     primary key(idcuama, idcuahang),
-    foreign key (idcuama) references khuyenmaichung(idcuama),
+    foreign key (idcuama) references khuyenmai_chung(idcuama),
     foreign key (idcuahang) references nhahang(idtaikhoan)
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE khuyenmaihethong (
     loaithanhvien varchar(20) NOT NULL,
     gioihandiemdesudung int NOT NULL,
     primary key (idcuama),
-    foreign key (idcuama)  references khuyenmaichung(idcuama)
+    foreign key (idcuama)  references khuyenmai_chung(idcuama)
 );
 
 CREATE TABLE Congtyvanchuyen(
