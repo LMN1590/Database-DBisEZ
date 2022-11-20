@@ -44,6 +44,30 @@ INSERT INTO khuyenmai_chung VALUES (18, 75000, 'Giảm 15k cho đơn hàng từ 
 INSERT INTO khuyenmai_chung VALUES (19, 0, 'Giảm 50k cho khách hàng mới', 'KHACHHANGMOI', '11/11/2022', '31/12/2022', 200, 80, 9);
 INSERT INTO khuyenmai_chung VALUES (20, 0, 'Giảm 50% tối đa 50k cho nguời giới thiệu', 'NGUOIGIOITHIEU', '08/12/2022', '29/12/2022', 200, 80, 10);
 
+-- khuyen mai he thong
+INSERT INTO khuyenmaihethong VALUES (1, 'vang', 100);
+INSERT INTO khuyenmaihethong VALUES (2, 'bac', 50);
+INSERT INTO khuyenmaihethong VALUES (3, 'kim cuong', 180);
+INSERT INTO khuyenmaihethong VALUES (4, 'back kim', 150);
+INSERT INTO khuyenmaihethong VALUES (5, 'dong', 20);
+INSERT INTO khuyenmaihethong VALUES (6, 'kim cuong', 200);
+INSERT INTO khuyenmaihethong VALUES (7, 'vang', 100);
+INSERT INTO khuyenmaihethong VALUES (8, 'back kim', 150);
+INSERT INTO khuyenmaihethong VALUES (9, 'bac', 50);
+INSERT INTO khuyenmaihethong VALUES (10, 'kim cuong', 200);
+
+-- khuyen mai cua hang
+INSERT INTO khuyenmaicuahang VALUES (11, 15);
+INSERT INTO khuyenmaicuahang VALUES (12, 12);
+INSERT INTO khuyenmaicuahang VALUES (13, 17);
+INSERT INTO khuyenmaicuahang VALUES (14, 16);
+INSERT INTO khuyenmaicuahang VALUES (15, 18);
+INSERT INTO khuyenmaicuahang VALUES (16, 19);
+INSERT INTO khuyenmaicuahang VALUES (17, 11);
+INSERT INTO khuyenmaicuahang VALUES (18, 14);
+INSERT INTO khuyenmaicuahang VALUES (19, 20);
+INSERT INTO khuyenmaicuahang VALUES (20, 13);
+
 --cong ty van chuyen
 INSERT INTO congtyvanchuyen VALUES ('congtyvanchuyen1', '1' , 'GrabFood', '0902348144', 'grabfood@grab.com', 'Tòa nhà Mapletree Business Center, 1060 Nguyễn Văn Linh, phường Tân Phong, quận 7, TPHCM');
 INSERT INTO congtyvanchuyen VALUES ('congtyvanchuyen2', '2' , 'beFood', '1900232345' , 'hotro@be.com.vn', 'Tầng 16, tòa nhà Saigon Tower, 29 Lê Duẩn, phường Bến Nghé, quận 1, TPHCM');
