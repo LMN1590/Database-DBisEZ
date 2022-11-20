@@ -16,6 +16,21 @@ CREATE TABLE admin (
     foreign key (idtaikhoan) references taikhoan(idtaikhoan)
 );
 
+CREATE TABLE khachhang(
+	IDtaikhoan int PRIMARY KEY,
+    Ho VARCHAR(10) NOT NULL,
+    Ten VARCHAR(20) NOT NULL,
+    Ngaytaotaikhoan DATE NOT NULL,
+    Diemtichluy int NOT NULL,
+    Ngaysinh DATE NOT NULL,
+    Loaithanhvien VARCHAR(10),
+    Tuoi int as (2022 - YEAR(Ngaysinh)) virtual
+);
+ALTER TABLE khachhang
+ADD CONSTRAINT fk_khachhang_IDtaikhoan	FOREIGN KEY (IDtaikhoan)
+	REFERENCES taikhoan(idtaikhoan)
+    ON DELETE CASCADE;
+
 CREATE TABLE khuyenmai_chung (
 	idcuama int PRIMARY KEY,
     giatoithieuapdung int NOT NULL,
