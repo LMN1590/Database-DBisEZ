@@ -55,3 +55,43 @@ CREATE TABLE congtyvanchuyen
     Email TEXT,
     Diachi TEXT
 );
+
+-- Phần của LMN --
+
+CREATE TABLE if not exists NhaHang(
+	IDTaiKhoan INT primary key,
+    TenNhaHang VARCHAR(255) NOT NULL,
+    DiaChi VARCHAR(255) NOT NULL,
+    Website VARCHAR(255) NOT NULL,
+    IDQuanLy INT NOT NULL
+);
+
+CREATE TABLE if not exists LoaiMonAn(
+	IDTaiKhoan INT NOT NULL,
+    IDLoaiMonAn INT NOT NULL,
+    TenLoaiMonAn VARCHAR(255) NOT NULL,
+    PRIMARY KEY(IDTaiKhoan, IDLoaiMonAn)
+);
+
+CREATE TABLE if not exists MonAn(
+	IDMonAn INT primary KEY,
+    TenMonAn VARCHAR(255) NOT NULL,
+    AnhMinhHoa VARCHAR(255) NOT NULL,
+    MoTa VARCHAR(255) NOT NULL,
+    GiaLamMon INT NOT NULL,
+    GiaBan INT NOT NULL,
+    IDNhaHang INT NOT NULL,
+    IDLoaiMonAn INT NOT NULL
+);
+
+create table if not exists NguyenLieu(
+	IDmonan INT NOT NULL,
+    Tennguyenlieu VARCHAR(255) NOT NULL,
+    primary key(IDmonan, Tennguyenlieu)
+);
+
+ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
+alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
+ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
+
+-----------------------
