@@ -33,6 +33,16 @@ INSERT INTO khuyenmai_chung VALUES (7, 0, 'Khuyến mãi 50% khi mua trà sữa'
 INSERT INTO khuyenmai_chung VALUES (8, 75000, 'Khuyến mãi 20% cho đơn từ 75k', 'DG7520', '15/11/2022', '30/11/2022', 100, 32, 8);
 INSERT INTO khuyenmai_chung VALUES (9, 0, 'Mã giảm 20k cho khách hàng sử dụng GrabFood', 'MCGRAB', '10/10/2022', '30/11/2022', 70, 5, 9);
 INSERT INTO khuyenmai_chung VALUES (10, 300000, 'Giảm 50% cho đơn hàng từ 300k', 'HOT300', '11/11/2022', '30/11/2022', 50, 0, 10);
+INSERT INTO khuyenmai_chung VALUES (11, 100000, 'Khao 10k đơn từ 100k', 'SAIGON10KL', '11/11/2022', '30/11/2022', 500, 15, 1);
+INSERT INTO khuyenmai_chung VALUES (12, 110000, 'Khao 25k đơn từ 110k', 'BEAMIN25', '4/10/2022', '9/12/2022', 400, 43, 2);
+INSERT INTO khuyenmai_chung VALUES (13, 55000, 'Khao 12k đơn từ 55k', 'BEAMIN12', '1/10/2022', '18/12/2022', 300, 66, 3);
+INSERT INTO khuyenmai_chung VALUES (14, 0, 'Giảm giá 30% tối đa 30K', 'HOMECREDIT30', '16/11/2022', '20/12/2022', 50, 21, 4);
+INSERT INTO khuyenmai_chung VALUES (15, 80000, 'Giảm giá 30% tối đa 30K cho đơn hàng từ 80k', 'AHIHIDONGOK', '4/11/2022', '25/12/2022', 200, 102, 5);
+INSERT INTO khuyenmai_chung VALUES (16, 60000, 'Giảm giá 20% đơn tối thiểu 60k', 'CHUHEBUONBA', '17/11/2022', '18/11/2022', 100, 32, 6);
+INSERT INTO khuyenmai_chung VALUES (17, 0, 'Khuyến mãi 30% cho chuỗi Cơm tấm Phúc Lộc Thọ', 'PHUCLOCTHO', '09/12/2022', '16/12/2022', 70, 5, 7);
+INSERT INTO khuyenmai_chung VALUES (18, 75000, 'Giảm 15k cho đơn hàng từ 75k', 'SHIPERHAPPY', '06/12/2022', '24/12/2022', 300, 70, 8);
+INSERT INTO khuyenmai_chung VALUES (19, 0, 'Giảm 50k cho khách hàng mới', 'KHACHHANGMOI', '11/11/2022', '31/12/2022', 200, 80, 9);
+INSERT INTO khuyenmai_chung VALUES (20, 0, 'Giảm 50% tối đa 50k cho nguời giới thiệu', 'NGUOIGIOITHIEU', '08/12/2022', '29/12/2022', 200, 80, 10);
 
 --cong ty van chuyen
 INSERT INTO congtyvanchuyen VALUES ('congtyvanchuyen1', '1' , 'GrabFood', '0902348144', 'grabfood@grab.com', 'Tòa nhà Mapletree Business Center, 1060 Nguyễn Văn Linh, phường Tân Phong, quận 7, TPHCM');
