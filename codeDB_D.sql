@@ -68,6 +68,21 @@ CREATE TABLE khuyenmaihethong (
     foreign key (idcuama)  references khuyenmai_chung(idcuama)
 );
 
+CREATE TABLE khuyenmaigiamtien
+(
+	IDcuama int PRIMARY KEY,
+    Sotiengiam int,
+    foreign key (IDcuama) references khuyenmai_chung(idcuama)
+);
+
+CREATE TABLE khuyenmaiphantram
+(
+	IDcuama int PRIMARY KEY,
+    Phantramgiam int,
+    Tiengiamtoida int,
+    foreign key (IDcuama) references khuyenmai_chung(idcuama)
+);
+
 CREATE TABLE Congtyvanchuyen(
    ID     INTEGER  NOT NULL PRIMARY KEY 
   ,Ten    VARCHAR(50) NOT NULL
