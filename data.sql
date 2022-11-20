@@ -10,6 +10,16 @@ INSERT INTO taikhoan VALUES(8, 'zoomer234', 'iDAqVGUd', '0229031171', 'trustmebr
 INSERT INTO taikhoan VALUES(9, 'tuanITpro', 'hmA9OFCW', '0739521401', 'tuanvjpit@gmail.com');
 INSERT INTO taikhoan VALUES(10, 'ADPKsieu', 'XskUyJO9', '0944327626', 'adpkno1xathu@gmail.com');
 
+INSERT INTO taikhoan VALUES(21, 'chuhebuonba', 'hahahaha', '0334566543', 'chuhebuonba@gmail.com');
+INSERT INTO taikhoan VALUES(22, 'uchihahaha', 'hihihihihihi', '0556325436', 'uchihahaha@gmail.com');
+INSERT INTO taikhoan VALUES(23, 'huynhdavid', 'hohohohoho', '0902356912', 'huynhdavid1412@gmail.com');
+INSERT INTO taikhoan VALUES(24, 'khavansang', 'hehehehehe', '0567708992', 'sakakakaka@gmail.com');
+INSERT INTO taikhoan VALUES(25, 'danhnguyen', 'huhuhuhuhu', '0794456543', 'danhnguyenphenomenal@gmail.com');
+INSERT INTO taikhoan VALUES(26, 'ngaile', 'hichichichic', '0984332756', 'nghialekhmt@gmail.com');
+INSERT INTO taikhoan VALUES(27, 'hungchamkam', 'ahihidongokk', '0978996669', 'buonbuonchoida@gmail.com');
+INSERT INTO taikhoan VALUES(28, 'vuchan', 'minhlamappdi', '0955955955', 'vuchan@gmail.com');
+INSERT INTO taikhoan VALUES(29, 'duyganhteam', 'motminhtchaphet', '0989809008', 'duypka@gmail.com');
+INSERT INTO taikhoan VALUES(30, 'vinhbomdeu', 'tatcalatainhan', '0984953000', 'vinhbomdeu@gmail.com');
 -- admin
 INSERT INTO admin VALUES (1, 'Chan', 'Danh');
 INSERT INTO admin VALUES (2, 'Hai', 'Que');
