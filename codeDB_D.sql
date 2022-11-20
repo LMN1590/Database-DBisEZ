@@ -8,12 +8,14 @@ CREATE TABLE taikhoan (
     sdt varchar(20) NOT NULL,
     email varchar(100) NOT NULL
 );
+
 CREATE TABLE admin (
 	idtaikhoan int PRIMARY KEY, 
 	ho varchar(20) NOT NULL,
 	ten varchar(20) NOT NULL,
     foreign key (idtaikhoan) references taikhoan(idtaikhoan)
 );
+
 CREATE TABLE khuyenmai_chung (
 	idcuama int PRIMARY KEY,
     giatoithieuapdung int NOT NULL,
@@ -40,7 +42,7 @@ CREATE TABLE khuyenmaicuahang (
     idcuahang int NOT NULL,
     primary key(idcuama, idcuahang),
     foreign key (idcuama) references khuyenmai_chung(idcuama),
-    foreign key (idcuahang) references nhahang(idtaikhoan)
+    foreign key (idcuahang) references NhaHang(IDTaiKhoan)
 );
 
 CREATE TABLE khuyenmaihethong (
@@ -59,11 +61,7 @@ CREATE TABLE Congtyvanchuyen(
   ,Diachi VARCHAR(256) NOT NULL
 );
 
-
 -- Phần của LMN --
-
-
-
 CREATE TABLE if not exists LoaiMonAn(
 	IDTaiKhoan INT NOT NULL,
     IDLoaiMonAn INT NOT NULL,
@@ -87,16 +85,6 @@ create table if not exists NguyenLieu(
     Tennguyenlieu VARCHAR(255) NOT NULL,
     primary key(IDmonan, Tennguyenlieu)
 );
-
-ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
-alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
-ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
-alter table noidung_donhang add foreign key (ID_monan) references monan(IDmonan);
-alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID);
-alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan);
-alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan);
-alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan);
------------------------
 
 CREATE TABLE Noidung_donhang(
    ID_donhang INTEGER  NOT NULL
@@ -130,6 +118,16 @@ CREATE TABLE Donhang(
   ,Ngaydathang  DATE  NOT NULL
 );
 
+ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
+alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
+ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
+alter table noidung_donhang add foreign key (ID_monan) references monan(IDmonan);
+alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID);
+alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan);
+alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan);
+alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan);
+-----------------------
+
 ALTER TABLE Hoadon
 ADD CONSTRAINT fk_hoadon_IDdonhang	FOREIGN KEY (ID_donhang)
 	REFERENCES Donhang(ID)
@@ -139,4 +137,4 @@ ALTER TABLE Donhang
 ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
 	REFERENCES Congtyvanchuyen(ID)
     ON DELETE CASCADE;
---- Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
+-- Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
