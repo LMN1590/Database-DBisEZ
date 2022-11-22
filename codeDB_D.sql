@@ -28,7 +28,7 @@ CREATE TABLE khachhang(
 ALTER TABLE khachhang
 ADD CONSTRAINT fk_khachhang_IDtaikhoan	FOREIGN KEY (IDtaikhoan)
 	REFERENCES taikhoan(idtaikhoan)
-    ON DELETE CASCADE;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
 CREATE TABLE khuyenmai_chung (
 	idcuama int PRIMARY KEY,
