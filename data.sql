@@ -88,18 +88,6 @@ INSERT INTO khuyenmaihethong VALUES (8, 'back kim', 150);
 INSERT INTO khuyenmaihethong VALUES (9, 'bac', 50);
 INSERT INTO khuyenmaihethong VALUES (10, 'kim cuong', 200);
 
--- khuyen mai cua hang
-INSERT INTO khuyenmaicuahang VALUES (11, 15);
-INSERT INTO khuyenmaicuahang VALUES (12, 12);
-INSERT INTO khuyenmaicuahang VALUES (13, 17);
-INSERT INTO khuyenmaicuahang VALUES (14, 16);
-INSERT INTO khuyenmaicuahang VALUES (15, 18);
-INSERT INTO khuyenmaicuahang VALUES (16, 19);
-INSERT INTO khuyenmaicuahang VALUES (17, 11);
-INSERT INTO khuyenmaicuahang VALUES (18, 14);
-INSERT INTO khuyenmaicuahang VALUES (19, 20);
-INSERT INTO khuyenmaicuahang VALUES (20, 13);
-
 -- khuyenmaigiamtien
 INSERT INTO khuyenmaigiamtien VALUES (1,150000);
 INSERT INTO khuyenmaigiamtien VALUES (2,50000);
@@ -144,6 +132,18 @@ insert into nhahang values (17,'Phở Trang','420 Phạm Thái Bường, P. Tân
 insert into nhahang values (18,'Bún bò Gánh','110 Lý Chính Thắng - P8 - Q3 - TP.HCM','https://www.bunboganh.vn/',6);
 insert into nhahang values (19,'Quán ông Diệm','59 Hoa Sứ, P. 7, Q. Phú Nhuận','https://hutieumuc.vn/',8);
 insert into nhahang values (20,'Anh Hoa Bakery','Số 09 Trần Thái Tông, P. Dịch Vọng, Q. Cầu Giấy, TP. Hà Nội','https://anhhoabakery.vn/',1);
+
+-- khuyen mai cua hang
+INSERT INTO khuyenmaicuahang VALUES (11, 15);
+INSERT INTO khuyenmaicuahang VALUES (12, 12);
+INSERT INTO khuyenmaicuahang VALUES (13, 17);
+INSERT INTO khuyenmaicuahang VALUES (14, 16);
+INSERT INTO khuyenmaicuahang VALUES (15, 18);
+INSERT INTO khuyenmaicuahang VALUES (16, 19);
+INSERT INTO khuyenmaicuahang VALUES (17, 11);
+INSERT INTO khuyenmaicuahang VALUES (18, 14);
+INSERT INTO khuyenmaicuahang VALUES (19, 20);
+INSERT INTO khuyenmaicuahang VALUES (20, 13);
 
 -- Thêm vào loại món ăn
 insert into loaimonan values (11,1,'Cơm tấm');
