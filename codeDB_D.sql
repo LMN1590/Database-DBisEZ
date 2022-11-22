@@ -12,8 +12,7 @@ CREATE TABLE taikhoan (
 CREATE TABLE admin (
 	idtaikhoan int PRIMARY KEY, 
 	ho varchar(20) NOT NULL,
-	ten varchar(20) NOT NULL,
-    foreign key (idtaikhoan) references taikhoan(idtaikhoan)
+	ten varchar(20) NOT NULL
 );
 
 CREATE TABLE khachhang(
@@ -42,6 +41,7 @@ CREATE TABLE khuyenmai_chung (
     soluongconlai int NOT NULL,
     idnguoitaoma int NOT NULL,
     foreign key (idnguoitaoma) references admin(idtaikhoan)
+    on delete cascade on update cascade
 );
 
 CREATE TABLE if not exists NhaHang(
@@ -56,8 +56,10 @@ CREATE TABLE khuyenmaicuahang (
 	idcuama int NOT NULL,
     idcuahang int NOT NULL,
     primary key(idcuama, idcuahang),
-    foreign key (idcuama) references khuyenmai_chung(idcuama),
+    foreign key (idcuama) references khuyenmai_chung(idcuama)
+    on delete cascade on update cascade,
     foreign key (idcuahang) references NhaHang(IDTaiKhoan)
+    on delete cascade on update cascade
 );
 
 CREATE TABLE khuyenmaihethong (
@@ -66,6 +68,7 @@ CREATE TABLE khuyenmaihethong (
     gioihandiemdesudung int NOT NULL,
     primary key (idcuama),
     foreign key (idcuama)  references khuyenmai_chung(idcuama)
+    on delete cascade on update cascade
 );
 
 CREATE TABLE khuyenmaigiamtien
@@ -73,6 +76,7 @@ CREATE TABLE khuyenmaigiamtien
 	IDcuama int PRIMARY KEY,
     Sotiengiam int,
     foreign key (IDcuama) references khuyenmai_chung(idcuama)
+    on delete cascade on update cascade
 );
 
 CREATE TABLE khuyenmaiphantram
@@ -81,6 +85,7 @@ CREATE TABLE khuyenmaiphantram
     Phantramgiam int,
     Tiengiamtoida int,
     foreign key (IDcuama) references khuyenmai_chung(idcuama)
+    on delete cascade on update cascade
 );
 
 CREATE TABLE Congtyvanchuyen(
@@ -152,27 +157,30 @@ CREATE TABLE Apdung_khuyenmai(
     ID_donhang  INTEGER NOT NULL,
     ID_makhuyenmai  INTEGER NOT NULL,
     PRIMARY KEY(ID_donhang, ID_makhuyenmai)
-)
+);
 
-ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan);
-alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan);
-ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan);
-alter table noidung_donhang add foreign key (ID_monan) references monan(IDmonan);
-alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID);
-alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan);
-alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan);
-alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan);
-alter table Apdung_khuyenmai add foreign key (ID_donhang) references donhang(ID);
-alter table Apdung_khuyenmai add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama);
+ALTER table admin add foreign key (idtaikhoan) references taikhoan(idtaikhoan) on delete cascade on update cascade;
+ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan) on delete cascade on update cascade;
+alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan) on delete cascade on update cascade;
+ALTER table nguyenlieu add foreign key (idmonan) references monan(idmonan) on delete cascade on update cascade;
+alter table noidung_donhang add foreign key (ID_monan) references monan(IDmonan) on delete cascade on update cascade;
+alter table noidung_donhang add foreign key (ID_donhang) references donhang(ID) on delete cascade on update cascade;
+alter table nhahang add foreign key (IDquanly) references admin(idtaikhoan) on delete cascade on update cascade;
+alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idtaikhoan) on delete cascade on update cascade;
+alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan) on delete cascade on update cascade;
+alter table Apdung_khuyenmai add foreign key (ID_donhang) references donhang(ID)  on delete cascade on update cascade;
+alter table Apdung_khuyenmai add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama)  on delete cascade on update cascade;
 -----------------------
 
 ALTER TABLE Hoadon
 ADD CONSTRAINT fk_hoadon_IDdonhang	FOREIGN KEY (ID_donhang)
 	REFERENCES Donhang(ID)
-    ON DELETE CASCADE;
+    on delete cascade on update cascade;
     
 ALTER TABLE Donhang
 ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
 	REFERENCES Congtyvanchuyen(ID)
-    ON DELETE CASCADE;
+    on delete cascade on update cascade;
 -- Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
+
+
