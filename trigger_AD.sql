@@ -5,8 +5,8 @@ drop trigger if exists after_monan_delete;
 CREATE TABLE monan_log (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     IDmonan INT NOT NULL,
-    ten VARCHAR(50) NOT NULL,
-    mota VARCHAR(200) NOT NULL,
+    ten VARCHAR(255) NOT NULL,
+    mota VARCHAR(255) NOT NULL,
     IDnhahang INT NOT NULL,
     IDLoaimonan INT NOT NULL,
     changedat DATETIME DEFAULT NULL,
@@ -48,3 +48,15 @@ CREATE TRIGGER after_monan_delete
 	IDnhahang = OLD.IDNhaHang,
 	IDLoaimonan = OLD.IDLoaiMonAn,
 	changedat = NOW();
+
+CREATE TRIGGER add_giaban AFTER INSERT ON monan 
+FOR EACH ROW
+  UPDATE noidung_donhang
+     SET Giamua = NEW.GiaBan
+   WHERE ID_monan = NEW.IDMonAn;
+
+CREATE TRIGGER update_giaban AFTER UPDATE ON monan 
+FOR EACH ROW
+  UPDATE noidung_donhang
+     SET Giamua = NEW.GiaBan
+   WHERE ID_monan = NEW.IDMonAn;
