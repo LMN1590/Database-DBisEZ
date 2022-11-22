@@ -9,8 +9,6 @@ INSERT INTO taikhoan VALUES(7, 'boomerfaker', 'N1ri2TLD', '0666889572', 'canhcut
 INSERT INTO taikhoan VALUES(8, 'zoomer234', 'iDAqVGUd', '0229031171', 'trustmebro@gmail.com');
 INSERT INTO taikhoan VALUES(9, 'tuanITpro', 'hmA9OFCW', '0739521401', 'tuanvjpit@gmail.com');
 INSERT INTO taikhoan VALUES(10, 'ADPKsieu', 'XskUyJO9', '0944327626', 'adpkno1xathu@gmail.com');
-
-
 INSERT INTO taikhoan VALUES(11,	'TamPLT',	'a2sds221',	'0877142142' ,	'pltcomtam@gmail.com');
 INSERT INTO taikhoan VALUES(12,	'xoimo412',	'j322jh21g',	'0914000404',	'comga142@gmail.com');
 INSERT INTO taikhoan VALUES(13,	'Haiga222',	'ygd331kk',	'19000091',	'haiga222@gmail.com');
@@ -290,13 +288,6 @@ INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (7,
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (8,'Trực tiếp',250000,19000,8);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (9,'Trực tiếp',840000,75000,9);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (10,'Online',245000,30000,10);
-
--- Cong ty van chuyen
-INSERT INTO Congtyvanchuyen VALUES (1,'GrabFood','0902348144','grabfood@grab.com','Tòa nhà Mapletree Business Center, 1060 Nguyễn Văn Linh, phường Tân Phong, quận 7, TPHCM');
-INSERT INTO Congtyvanchuyen VALUES (2,'beFood','1900232345','hotro@be.com.vn','Tầng 16, tòa nhà Saigon Tower, 29 Lê Duẩn, phường Bến Nghé, quận 1, TPHCM');
-INSERT INTO Congtyvanchuyen VALUES (3,'Baemin','19003458','help@baemin.vn','Tầng 4 và Tầng 5, Friendship Tower, 31 Lê Duẩn, phường Bến Nghé, quận 1, TPHCM');
-INSERT INTO Congtyvanchuyen VALUES (4,'ShopeeFood','19002042','support@shopeefood.vn','Lầu G, tòa nhà Jabes 1, 244 Cống Quỳnh, phường Phạm Ngũ Lão, quận 1, TPHCM');
-INSERT INTO Congtyvanchuyen VALUES (5,'Loship','1900638058','hotroloship@lozi.vn','Tòa nhà Lữ Gia, Tầng 4 - 70 Lữ Gia, phường 15, quận 11, TPHCM');
 
 -- Noi dung don hang
 INSERT INTO Noidung_donhang(ID_donhang,ID_monan,Soluongmon,Giamua) VALUES (1,1,1,39000);
