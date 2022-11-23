@@ -170,17 +170,16 @@ alter table khuyenmai_chung add foreign key (idnguoitaoma) references admin(idta
 alter table nhahang add foreign key (idtaikhoan) references taikhoan(idtaikhoan) on delete cascade on update cascade;
 alter table Apdung_khuyenmai add foreign key (ID_donhang) references donhang(ID)  on delete cascade on update cascade;
 alter table Apdung_khuyenmai add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama)  on delete cascade on update cascade;
+alter table hoadon add foreign key (ID_donhang) references donhang(ID) on delete cascade on update cascade;
+alter table donhang add foreign key (ID_congty) references congtyvanchuyen(ID) on delete cascade on update cascade;
+alter table donhang add foreign key (ID_nguoinhan) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 -----------------------
 
-ALTER TABLE Hoadon
-ADD CONSTRAINT fk_hoadon_IDdonhang	FOREIGN KEY (ID_donhang)
-	REFERENCES Donhang(ID)
-    on delete cascade on update cascade;
     
 ALTER TABLE Donhang
 ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
 	REFERENCES Congtyvanchuyen(ID)
     on delete cascade on update cascade;
--- Do chưa có khách hàng nên chưa thêm foreign key ID_nguoinhan được
+
 
 
