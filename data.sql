@@ -278,15 +278,15 @@ INSERT INTO Donhang(ID,Nguoinhan,Tinhtrang,Ghichu,Diachi,SDT,Taixe_SDT,Taixe_Hot
 INSERT INTO Donhang(ID,Nguoinhan,Tinhtrang,Ghichu,Diachi,SDT,Taixe_SDT,Taixe_Hoten,Taixe_Bienso,Taixe_Tenxe,ID_nguoinhan,ID_congty,Ngaydathang) VALUES (10,'Lê Tùng Vân','Đang xử lý',NULL,'461 Lê Văn Sỹ, phường 2, quận Tân Bình',0814523168,0358416471,'Trần Thị Mai','61T1-45167','Yamaha Sirius',30,4,'2022-12-26');
 
 -- Hoa don
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (1,'Trực tiếp',54000,15000,1);
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (2,'Trực tiếp',260000,16000,2);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (1,'Online',54000,15000,1);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (2,'Online',260000,16000,2);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (3,'Online',31500,23000,3);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (4,'Online',655000,25000,4);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (5,'Online',110000,48000,5);
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (6,'Trực tiếp',410000,17000,6);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (6,'Online',410000,17000,6);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (7,'Online',108000,36000,7);
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (8,'Trực tiếp',250000,19000,8);
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (9,'Trực tiếp',840000,75000,9);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (8,'Online',250000,19000,8);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (9,'Online',840000,75000,9);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (10,'Online',245000,30000,10);
 
 -- Noi dung don hang
