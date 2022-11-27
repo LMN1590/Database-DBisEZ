@@ -328,3 +328,15 @@ INSERT INTO Apdung_khuyenmai VALUES(7,16);
 INSERT INTO Apdung_khuyenmai VALUES(9,1);
 INSERT INTO Apdung_khuyenmai VALUES(9,3);
 INSERT INTO Apdung_khuyenmai VALUES(10,20);
+
+-- Gioi thieu
+INSERT INTO gioithieu VALUES (21, 25, 2);
+INSERT INTO gioithieu VALUES (23, 29, 10);
+INSERT INTO gioithieu VALUES (24, 27, 5);
+INSERT INTO gioithieu VALUES (26, 22, 16);
+INSERT INTO gioithieu VALUES (28, 30, 15);
+INSERT INTO gioithieu VALUES (24, 29, 4);
+INSERT INTO gioithieu VALUES (25, 26, 12);
+INSERT INTO gioithieu VALUES (27, 25, 18);
+INSERT INTO gioithieu VALUES (23, 24, 17);
+INSERT INTO gioithieu VALUES (27, 22, 1);
