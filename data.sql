@@ -289,7 +289,7 @@ INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (7,
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (8,'Trực tiếp',250000,19000,8);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (9,'Trực tiếp',840000,75000,9);
 INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (10,'Online',245000,30000,10);
-INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (11,'Trực tiếp',345000,20000,2);
+INSERT INTO Hoadon(ID,Phươngthuc,Phidonhang,Phigiaohang,ID_donhang) VALUES (11,'Trực tiếp',345000,20000,11);
 
 -- Noi dung don hang
 INSERT INTO Noidung_donhang(ID_donhang,ID_monan,Soluongmon,Giamua) VALUES (1,1,1,39000);
