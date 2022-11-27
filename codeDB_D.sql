@@ -166,6 +166,12 @@ CREATE TABLE gioithieu(
     primary key(ID_nguoigioithieu, ID_nguoiduocgioithieu, ID_makhuyenmai)
 );
 
+CREATE TABLE thuthap(
+	ID_ma integer not null,
+    ID_khachhang integer not null,
+    primary key(ID_ma, ID_khachhang)
+);
+
 ALTER table admin add foreign key (idtaikhoan) references taikhoan(idtaikhoan) on delete cascade on update cascade;
 ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan) on delete cascade on update cascade;
 alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan) on delete cascade on update cascade;
@@ -183,6 +189,8 @@ alter table donhang add foreign key (ID_nguoinhan) references khachhang(IDtaikho
 alter table gioithieu add foreign key (ID_nguoigioithieu) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 alter table gioithieu add foreign key (ID_nguoiduocgioithieu) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 alter table gioithieu add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama) on delete cascade on update cascade;
+alter table thuthap add foreign key (ID_ma) references khuyenmai_chung(idcuama) on delete cascade on update cascade;
+alter table thuthap add foreign key (ID_khachhang) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 -----------------------
 
     
