@@ -12,10 +12,12 @@ begin
 		SELECT CONCAT('Khách hàng với ID (',id_khachhang,') không tồn tại trong bảng dữ liệu.') AS 'RES';
 	else
 		select * from Hoadon inner join Donhang on Hoadon.ID_donhang = Donhang.ID
-        where Donhang.ID_nguoinhan = id_khachhang group by; 
+        where Donhang.ID_nguoinhan = id_khachhang order by Hoadon; 
 	end if;
 end //
 
 DELIMITER ;
 
 call Hoadonthuocve(22);
+
+-- 2: Số lượng nguyên liệu của một món ăn -- 
