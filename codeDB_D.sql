@@ -131,7 +131,7 @@ CREATE TABLE Noidung_donhang(
 
 CREATE TABLE Hoadon(
    ID          INTEGER  NOT NULL PRIMARY KEY 
-  ,Phươngthuc  VARCHAR(9) NOT NULL
+  ,Phuongthuc  VARCHAR(9) NOT NULL
   ,Phidonhang  INTEGER  NOT NULL
   ,Phigiaohang INTEGER  NOT NULL
   ,ID_donhang  INTEGER  NOT NULL
