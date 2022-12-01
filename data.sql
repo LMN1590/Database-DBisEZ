@@ -328,3 +328,37 @@ INSERT INTO Apdung_khuyenmai VALUES(7,16);
 INSERT INTO Apdung_khuyenmai VALUES(9,1);
 INSERT INTO Apdung_khuyenmai VALUES(9,3);
 INSERT INTO Apdung_khuyenmai VALUES(10,20);
+
+-- Gioi thieu
+INSERT INTO gioithieu VALUES (21, 25, 2);
+INSERT INTO gioithieu VALUES (23, 29, 10);
+INSERT INTO gioithieu VALUES (24, 27, 5);
+INSERT INTO gioithieu VALUES (26, 22, 16);
+INSERT INTO gioithieu VALUES (28, 30, 15);
+INSERT INTO gioithieu VALUES (24, 29, 4);
+INSERT INTO gioithieu VALUES (25, 26, 12);
+INSERT INTO gioithieu VALUES (27, 25, 18);
+INSERT INTO gioithieu VALUES (23, 24, 17);
+INSERT INTO gioithieu VALUES (27, 22, 1);
+
+-- Thu thap ma khuyen mai
+INSERT INTO thuthap VALUES(1, 21);
+INSERT INTO thuthap VALUES(2, 23);
+INSERT INTO thuthap VALUES(3, 25);
+INSERT INTO thuthap VALUES(4, 26);
+INSERT INTO thuthap VALUES(5, 27);
+INSERT INTO thuthap VALUES(6, 28);
+INSERT INTO thuthap VALUES(7, 22);
+INSERT INTO thuthap VALUES(8, 25);
+INSERT INTO thuthap VALUES(9, 29);
+INSERT INTO thuthap VALUES(10, 30);
+INSERT INTO thuthap VALUES(11, 21);
+INSERT INTO thuthap VALUES(12, 22);
+INSERT INTO thuthap VALUES(13, 24);
+INSERT INTO thuthap VALUES(14, 25);
+INSERT INTO thuthap VALUES(15, 26);
+INSERT INTO thuthap VALUES(16, 27);
+INSERT INTO thuthap VALUES(17, 23);
+INSERT INTO thuthap VALUES(18, 25);
+INSERT INTO thuthap VALUES(19, 28);
+INSERT INTO thuthap VALUES(20, 25);

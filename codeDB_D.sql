@@ -159,6 +159,19 @@ CREATE TABLE Apdung_khuyenmai(
     PRIMARY KEY(ID_donhang, ID_makhuyenmai)
 );
 
+CREATE TABLE gioithieu(
+	ID_nguoigioithieu integer not null,
+    ID_nguoiduocgioithieu integer not null,
+    ID_makhuyenmai integer not null,
+    primary key(ID_nguoigioithieu, ID_nguoiduocgioithieu, ID_makhuyenmai)
+);
+
+CREATE TABLE thuthap(
+	ID_ma integer not null,
+    ID_khachhang integer not null,
+    primary key(ID_ma, ID_khachhang)
+);
+
 ALTER table admin add foreign key (idtaikhoan) references taikhoan(idtaikhoan) on delete cascade on update cascade;
 ALTER table loaimonan add foreign key (idtaikhoan) references nhahang(IDtaikhoan) on delete cascade on update cascade;
 alter table monan add foreign key (IDnhahang,idloaimonan) references loaimonan(idtaikhoan,idloaimonan) on delete cascade on update cascade;
@@ -173,6 +186,11 @@ alter table Apdung_khuyenmai add foreign key (ID_makhuyenmai) references khuyenm
 alter table hoadon add foreign key (ID_donhang) references donhang(ID) on delete cascade on update cascade;
 alter table donhang add foreign key (ID_congty) references congtyvanchuyen(ID) on delete cascade on update cascade;
 alter table donhang add foreign key (ID_nguoinhan) references khachhang(IDtaikhoan) on delete cascade on update cascade;
+alter table gioithieu add foreign key (ID_nguoigioithieu) references khachhang(IDtaikhoan) on delete cascade on update cascade;
+alter table gioithieu add foreign key (ID_nguoiduocgioithieu) references khachhang(IDtaikhoan) on delete cascade on update cascade;
+alter table gioithieu add foreign key (ID_makhuyenmai) references khuyenmai_chung(idcuama) on delete cascade on update cascade;
+alter table thuthap add foreign key (ID_ma) references khuyenmai_chung(idcuama) on delete cascade on update cascade;
+alter table thuthap add foreign key (ID_khachhang) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 -----------------------
 
     
