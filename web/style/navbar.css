@@ -5,7 +5,9 @@
 :root {
     --color: #9c3cd3;
     --color-light:  #d9bce9;
-    --border: 2px solid black;
+    --blue: #1CC6FC;
+    --dark-blue:#255FE6;
+    --border: 1px solid black;
 }
 .nav-cont{
     width:100%;

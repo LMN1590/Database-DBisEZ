@@ -1,50 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Awesome CDN-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
-    <!-- jQuery CDN-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <link rel="stylesheet" href="./style/navbar.css">
-    <title>Document</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-custom">
-        <div class="container-fluid nav-cont">
-            <div class="col-md-3 col-12 home text-center">
-                <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" style="padding:10px;">
-                    Main Menu
-                </button>
-            </div>
-            
-            <div class="col-md-6 col-12 text-center">
-                <a href="#" class="navbar-brand">
-                    <img src="./img/logo-white.png" alt="Logo" class="brand-logo">
-                </a>
-            </div>
-            
-            <div class="credit col-md-3 col-12 text-center">
-                <h4 style="font-weight: bolder;">
-                    Database Assignment 2
-                </h4>
-                <h6 style="font-weight: bolder;">
-                    From team DBisEZ
-                </h6>
-                <p>
-                    <a href="#" style="color:white; font-size: 20px; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
-                </p>
-            </div>
-            
+<link rel="stylesheet" href="./style/navbar.css">
+<nav class="navbar navbar-expand-lg bg-custom">
+    <div class="container-fluid nav-cont">
+        <div class="col-md-3 col-12 home text-center">
+            <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" style="padding:10px;">
+                Main Menu
+            </button>
         </div>
-    </nav>
-</body>
+        
+        <div class="col-md-6 col-12 text-center">
+            <a href="#" class="navbar-brand">
+                <img src="./img/logo-white.png" alt="Logo" class="brand-logo">
+            </a>
+        </div>
+        
+        <div class="credit col-md-3 col-12 text-center">
+            <h4 style="font-weight: bolder;">
+                Database Assignment 2
+            </h4>
+            <h6 style="font-weight: bolder;">
+                From team DBisEZ
+            </h6>
+            <p>
+                <a href="#" style="color:white; font-size: 20px; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
+            </p>
+        </div>
+        
+    </div>
+</nav>
+
 <div class="offcanvas offcanvas-start offcanvas-menu" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
         <img src="./img/logo.png" alt="Logo" class="menu-logo">
@@ -73,4 +56,3 @@
         </div>
     </div>
 </div>    
-</html>
