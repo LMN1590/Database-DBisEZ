@@ -75,10 +75,6 @@ begin
 	end if;
 end $
 DELIMITER ;
-
-drop procedure addHoadon;
-drop procedure removeHoadonByID;
-drop procedure updateHoadonByID;
 -- Test
 -- Insert
 -- -- Bình thường
