@@ -39,9 +39,7 @@ CREATE TABLE khuyenmai_chung (
     hansudung varchar(10) NOT NULL,
     soluongtoida int NOT NULL,
     soluongconlai int NOT NULL,
-    idnguoitaoma int NOT NULL,
-    foreign key (idnguoitaoma) references admin(idtaikhoan)
-    on delete cascade on update cascade
+    idnguoitaoma int NOT NULL
 );
 
 CREATE TABLE if not exists NhaHang(
@@ -192,12 +190,6 @@ alter table gioithieu add foreign key (ID_makhuyenmai) references khuyenmai_chun
 alter table thuthap add foreign key (ID_ma) references khuyenmai_chung(idcuama) on delete cascade on update cascade;
 alter table thuthap add foreign key (ID_khachhang) references khachhang(IDtaikhoan) on delete cascade on update cascade;
 -----------------------
-
-    
-ALTER TABLE Donhang
-ADD CONSTRAINT fk_donhang_IDcongty	FOREIGN KEY (ID_congty)
-	REFERENCES Congtyvanchuyen(ID)
-    on delete cascade on update cascade;
 
 
 

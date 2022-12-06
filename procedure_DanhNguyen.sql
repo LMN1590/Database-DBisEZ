@@ -29,7 +29,7 @@ begin
     if countID = 0 then
 		SELECT CONCAT('Đơn hàng ID (',ID_donhang,') không tồn tại trong bảng dữ liệu.') AS 'Thông báo lỗi';
 	else
-		select NL.IDmonan, ND.Giamua, count(NL.Tennguyenlieu) from Noidung_donhang as ND inner join NguyenLieu as NL 
+		select NL.IDmonan, ND.Giamua, count(NL.Tennguyenlieu) as Count from Noidung_donhang as ND inner join NguyenLieu as NL 
         on ND.ID_monan = NL.IDmonan
         where ND.ID_donhang = ID_donhang
         group by NL.IDmonan
@@ -41,7 +41,7 @@ end //
 DELIMITER ;
 
 -- Thủ tục 1
-call Hoadoncophuongthuc('Online');
+call Hoadoncophuongthuc("Online");
 
 -- Thủ tục 2
 call SonguyenlieuthuocmotDonhang(3, 0);
