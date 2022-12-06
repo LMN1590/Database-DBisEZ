@@ -21,7 +21,7 @@ BEGIN
         SELECT COUNT(*)
         FROM (SELECT ID_nguoinhan, ID, ID_makhuyenmai
         FROM donhang, apdung_khuyenmai
-        WHERE donhang.ID = apdung_khuyenmai.ID_donhang and ID_nguoinhan = 22) AS BANGKHUYENMAI );
+        WHERE donhang.ID = apdung_khuyenmai.ID_donhang and ID_nguoinhan = ID_khachhang) AS BANGKHUYENMAI );
 	END IF;
 END $$
 DELIMITER ;
