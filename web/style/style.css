@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+}
+:root {
+    --color: #9c3cd3;
+    --color-light:  #d9bce9;
+    --blue: #1CC6FC;
+    --dark-blue:#255FE6;
+    --border: 1px solid black;
+}
+.info{
+    margin: 10px auto;
+}
+.online{
+    background-color: var(--blue);
+}
+.real{
+    color:white;
+    background-color: var(--dark-blue);
+}
+.info-box{
+    padding:10px;
+    text-align: center;
+}
