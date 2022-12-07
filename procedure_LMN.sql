@@ -20,12 +20,12 @@ begin
 		SELECT  CONCAT('ID của bạn(',new_id,') đã tồn tại.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
 		select concat('Phương thức của bạn(',phuongthuc,') phải là \"Trực tiếp\" hoặc \"Online\".') AS 'RES';
+	elseif countIDdonhang=0 then
+		select concat('Mã đơn hàng được nhập(',IDdonhang,') không tồn tại.') AS 'RES';
 	elseif phidonhang%500!=0 then
 		select concat('Tiền đơn hàng của bạn(',phidonhang,') quá lẻ.') AS 'RES';
 	elseif phigiaohang%500!=0 then
 		select concat('Tiền đơn hàng của bạn(',phigiaohang,') quá lẻ.') AS 'RES';
-	elseif countIDdonhang=0 then
-		select concat('Mã đơn hàng được nhập(',IDdonhang,') không tồn tại.') AS 'RES';
 	else
 		INSERT INTO Hoadon VALUES (new_id, phuongthuc, phidonhang, phigiaohang, IDdonhang);
         select "Thêm thành công" AS 'RES';
@@ -66,12 +66,13 @@ begin
 		SELECT  CONCAT('ID của bạn(',selected_id,') không tồn tại trong bảng.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
 		select concat('Phương thức của bạn(',phuongthuc,') phải là \"Trực tiếp\" hoặc \"Online\".') AS 'RES';
+	elseif countIDdonhang=0 then
+		select concat('Mã đơn hàng được nhập(',IDdonhang,') không tồn tại.') AS 'RES';
 	elseif phidonhang%500!=0 then
 		select concat('Tiền đơn hàng của bạn(',phidonhang,') quá lẻ.') AS 'RES';
 	elseif phigiaohang%1000!=0 then
 		select concat('Tiền đơn hàng của bạn(',phigiaohang,') quá lẻ.') AS 'RES';
-	elseif countIDdonhang=0 then
-		select concat('Mã đơn hàng được nhập(',IDdonhang,') không tồn tại.') AS 'RES';
+	
 	else
 		update hoadon
         set hoadon.Phuongthuc=phuongthuc, hoadon.Phidonhang=phidonhang, hoadon.Phigiaohang=phigiaohang, hoadon.ID_donhang=IDdonhang

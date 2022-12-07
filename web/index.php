@@ -58,7 +58,7 @@
         <div class="row">
             <div class="title d-flex justify-content-between">
                 <h4>Bảng thống kê các hóa đơn</h4>
-                <button class="btn btn-custom">Thêm</button>
+                <button class="btn btn-custom" onclick="add();">Thêm</button>
             </div>
         </div>
         <div class="table-wrapper">
@@ -205,13 +205,16 @@
                 data=JSON.parse(data);
                 hoadon=data[0];
                 $(".modal-title").html("Chỉnh sửa thông tin cho hóa đơn "+String(hoadon['ID']));
+                $("#valID").attr("disabled",true);
                 $("#valID").val(hoadon['ID']);
                 $("#valPT").val(hoadon['Phuongthuc']);
                 $("#valTotalCost").val(hoadon['Phidonhang']);
                 $("#valTotalShip").val(hoadon['Phigiaohang']);
                 $("#valIDdh").val(hoadon['ID_donhang']);
                 $("#editModal").modal("show");
+                $("#editBtn").html("Sửa");
                 $("#editBtn").attr("onclick","edit("+String(hoadon['ID']+")"));
+                $("#delBtn").css("display","block");
                 $("#delBtn").attr("onclick","del("+String(hoadon['ID']+")"));
             }
         });
@@ -253,6 +256,31 @@
             }
         });
     }
+
+    function add(){
+        $(".modal-title").html("Thêm hóa đơn");
+        $("#valID").attr("disabled",false);
+        $("#delBtn").css("display","none");
+        $("#editBtn").html("Thêm");
+        $("#editModal").modal("show");
+        $("#editBtn").attr("onclick","addInner();");
+    }
+
+    function addInner(){
+        $.ajax({
+            method:"post",
+            url:"./controller/add.php",
+            data:{
+                id:id 
+            },
+            success: function(data,status){
+                console.log(data);
+                alert(data);
+                getAllHD(0);
+            }
+        });
+    }
+
     $(window).on('load',function(){
         getInfo("online");
         getInfo("real");
