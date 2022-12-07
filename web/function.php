@@ -11,7 +11,6 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -40,9 +39,16 @@
                 if (isset($_POST['ID'])) {
                     $id = $_POST['ID'];
                     require_once('controller\config.php');
-                    $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
-                                FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID
-                                WHERE D.ID_nguoinhan=' . $id;
+                    $query = '';
+                    if ($id == '') {
+                        $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
+                                    FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID';
+                    }
+                    else {
+                        $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
+                                    FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID
+                                    WHERE D.ID_nguoinhan=' . $id;   
+                    }
                     $res = $conn->query($query);
                     if ($res->num_rows > 0) {
                         while ($row = $res->fetch_assoc()) {
