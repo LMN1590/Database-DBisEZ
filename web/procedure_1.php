@@ -11,7 +11,6 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -56,8 +55,17 @@
                                     <td>' . $row['IDdonhang'] .'</td>
                                     <td>' . $row['Phuongthuc'] . '</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" value="' . $row['IDhoadon'] . '" data-bs-toggle="modal" data-bs-target="#exampleModal">Cập nhật</button>
-                                        <button type="button" class="btn btn-danger">Xóa</button>
+                                        <button 
+                                            type="button" 
+                                            class="btn btn-primary" 
+                                            onclick="openUpdate(' . $row['IDhoadon'] . ')" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                        >Cập nhật</button>
+                                        <button 
+                                            type="button" 
+                                            class="btn btn-danger"
+                                        >Xóa</button>
                                     </td>
                                 </tr>
                                 ';
@@ -73,22 +81,67 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin hóa đơn</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Cập nhật</button>
-            </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin hóa đơn</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="IDhoadon" class="form-label">ID hóa đơn</label> 
+                        <input type="text" class="form-control" id="IDhoadon" disabled readonly>
+                    </div>
+                    <div class="mb-1">Phương thức</div>
+                    <select class="form-select mb-3" aria-label="Default select example" id="phuongthuc">
+                        <option value="offline">Trực tiếp</option>
+                        <option value="online">Online</option>
+                    </select>
+                    <div class="mb-3">
+                        <label for="phidonhang" class="form-label">Phí đơn hàng</label> 
+                        <input type="text" class="form-control" id="phidonhang" disabled readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phigiaohang" class="form-label">Phí giao hàng</label> 
+                        <input type="text" class="form-control" id="phigiaohang">
+                    </div>
+                    <div class="mb-3">
+                        <label for="IDdonhang" class="form-label">ID đơn hàng</label> 
+                        <input type="text" class="form-control" id="IDdonhang">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="handleUpdate()">Cập nhật</button>
+                </div>
             </div>
         </div>
     </div>
 </body>
 </html>
 <script>
-    
+    function openUpdate(id) {
+        $.ajax({
+            method:"post",
+            url:"./controller/getAllHD.php",
+            data:{
+                id: id
+            },
+            success: function(data,status){
+                console.log(data);
+                data=JSON.parse(data);
+
+                data.forEach(function(hoadon){
+                    document.getElementById('IDhoadon').value = hoadon['ID'];
+                    document.getElementById('phuongthuc').value = (hoadon['Phuongthuc'] === "Trực tiếp" ? "offline" : "online");
+                    document.getElementById('phidonhang').value = hoadon['Phidonhang'];
+                    document.getElementById('phigiaohang').value = hoadon['Phigiaohang'];
+                    document.getElementById('IDdonhang').value = hoadon['ID_donhang'];
+                });
+            }
+        });
+    }
+    function handleUpdate(){
+        let phuongthuc = $('#phuongthuc').val() === 'offline' ? "Trực tiếp" : "Online";
+        let phigiaohang = $('#phigiaohang').val();
+        let IDdonhang = $('#IDdonhang').val();
+    }
 </script>
