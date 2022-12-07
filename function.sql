@@ -43,6 +43,9 @@ BEGIN
     DECLARE phan_tram_giam INT default 0;
 	DECLARE tien_giam_toi_da INT default 0;
     declare t int default 0;
+    DECLARE maxIndex int default 0;
+    DECLARE iterator int default 0;
+    
     SET x = (SELECT COUNT(ID) from donhang where ID = donhang_ID);
     IF(x = 0) THEN
 		RETURN -1;
@@ -64,20 +67,39 @@ BEGIN
 			SET tongtien = tongtien - y;
 		END IF;
         -- Trừ tất cả các mã giảm phần trăm
-        SET phan_tram_giam = (SELECT Phantramgiam
-        FROM apdung_khuyenmai a JOIN khuyenmaiphantram k ON a.ID_makhuyenmai = k.IDcuama
+        
+        drop temporary table if exists table_phan_tram_giam;
+        drop temporary table if exists table_tien_giam_toi_da;
+        
+        CREATE temporary TABLE table_phan_tram_giam  
+        (SELECT @n := @n + 1 n, Phantramgiam
+        FROM apdung_khuyenmai a JOIN khuyenmaiphantram k ON a.ID_makhuyenmai = k.IDcuama, (SELECT @n := 0) m
 		WHERE ID_donhang = donhang_ID);
-        SET tien_giam_toi_da = (SELECT Tiengiamtoida
-        FROM apdung_khuyenmai a JOIN khuyenmaiphantram k ON a.ID_makhuyenmai = k.IDcuama
+        
+        CREATE temporary table table_tien_giam_toi_da (SELECT @n := @n + 1 n, Tiengiamtoida
+        FROM apdung_khuyenmai a JOIN khuyenmaiphantram k ON a.ID_makhuyenmai = k.IDcuama, (SELECT @n := 0) m
 		WHERE ID_donhang = donhang_ID);
-        IF(phan_tram_giam IS NOT NULL) THEN
-			SET t = phan_tram_giam*giagoc/100;
-			IF(t > tien_giam_toi_da) THEN
-				SET tongtien = tongtien - tien_giam_toi_da;
-			ELSE
+        
+        SET iterator = 1;
+        SET maxIndex = (SELECT MAX(n) FROM table_phan_tram_giam);
+        
+		WHILE iterator <= maxIndex DO
+            SET phan_tram_giam = (SELECT Phantramgiam FROM table_phan_tram_giam WHERE n = iterator);
+            SET tien_giam_toi_da = (SELECT Tiengiamtoida FROM table_tien_giam_toi_da WHERE n = iterator);
+            IF(phan_tram_giam IS NOT NULL) THEN
+				SET t = phan_tram_giam*giagoc/100;
+			END IF;
+			IF (tien_giam_toi_da IS NOT NULL) THEN
+				IF(t > tien_giam_toi_da) THEN
+					SET tongtien = tongtien - tien_giam_toi_da;
+				ELSE
+					SET tongtien = tongtien - t;
+				END IF;
+			ELSE 
 				SET tongtien = tongtien - t;
 			END IF;
-		END IF;
+			SET iterator = iterator + 1;
+        END WHILE;
 		-- Lấy từng ID mã khuyến mãi trong bảng T1 
         -- Dùng IF-ELSE và count(ID) để xét khuyến mãi đó thuộc bảng nào
         -- Nếu thuộc bảng khuyến mãi giảm tiền -> khiểm tra tối thiểu -> trừ vào biến tổng tiền
@@ -88,4 +110,4 @@ BEGIN
 END $$
 DELIMITER ;
 
-SELECT TONGTIENDONHANG(12);
+SELECT TONGTIENDONHANG(7);
