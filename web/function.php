@@ -18,8 +18,8 @@
     include($IPATH."\\navbar.php");?>
 
     <div class="container info">
-        <h3>Danh sách hóa đơn</h3>
-        <form class="d-flex" role="search" method="post">
+        <h3 class="my-3">Danh sách hóa đơn</h3>
+        <form class="d-flex mb-3" role="search" method="post">
             <input class="form-control me-2" type="search" name="ID" placeholder="ID người nhận" aria-label="Search">
             <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>

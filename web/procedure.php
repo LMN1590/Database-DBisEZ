@@ -18,8 +18,8 @@
     include($IPATH."\\navbar.php");?>
 
     <div class="container info">
-        <h3>Danh sách đơn hàng</h3>
-        <form class="d-flex" role="search" method="post">
+        <h3 class="my-3">Danh sách đơn hàng</h3>
+        <form class="d-flex mb-3" role="search" method="post">
             <input class="form-control me-2" type="search" name="phuongthuc" placeholder="Phương thức thanh toán" aria-label="Search">
             <button class="btn btn-outline-primary" type="submit">Search</button>
         </form>
@@ -40,6 +40,10 @@
                     $phuongthuc = $_POST['phuongthuc'];
                     require_once('controller\config.php');
                     $query = 'CALL Hoadoncophuongthuc("' . $phuongthuc .'")';
+                    if ($phuongthuc === '') {
+                        $query = 'SELECT K.IDtaikhoan, K.Ho, K.Ten, D.ID as IDdonhang, H.ID as IDhoadon, H.Phuongthuc from (Hoadon as H inner join Donhang as D on H.ID_donhang = D.ID) 
+                                inner join khachhang as K on K.IDtaikhoan = D.ID_nguoinhan';
+                    }
                     $res = $conn->query($query);
                     if ($res->num_rows > 0) {
                         while ($row = $res->fetch_assoc()) {
@@ -65,6 +69,7 @@
                                         <button 
                                             type="button" 
                                             class="btn btn-danger"
+                                            onclick="handleDelete(' . $row['IDhoadon'] . ')" 
                                         >Xóa</button>
                                     </td>
                                 </tr>
@@ -110,7 +115,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary" onclick="handleUpdate()">Cập nhật</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="handleUpdate()">Cập nhật</button>
                 </div>
             </div>
         </div>
@@ -139,9 +144,33 @@
             }
         });
     }
-    function handleUpdate(){
-        let phuongthuc = $('#phuongthuc').val() === 'offline' ? "Trực tiếp" : "Online";
-        let phigiaohang = $('#phigiaohang').val();
-        let IDdonhang = $('#IDdonhang').val();
+
+    function handleUpdate() {
+        $.ajax({
+            method:"post",
+            url:"./controller/edit.php",
+            data:{
+                selected_id: $('#IDhoadon').val(),
+                phuongthuc: $('#phuongthuc').val() === 'offline' ? "Trực tiếp" : "Online",
+                phigiaohang: $('#phigiaohang').val(),
+                IDdonhang: $('#IDdonhang').val()
+            },
+            success: function(data,status) {
+                alert(data);
+            }
+        });
+    }
+
+    function handleDelete(id) {
+        $.ajax({
+            method:"post",
+            url:"./controller/remove.php",
+            data:{
+                id: id
+            },
+            success: function(data,status) {
+                alert(data);
+            }
+        });
     }
 </script>
