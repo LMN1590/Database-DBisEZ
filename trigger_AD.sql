@@ -49,14 +49,17 @@ CREATE TRIGGER after_monan_delete
 	IDLoaimonan = OLD.IDLoaiMonAn,
 	changedat = NOW();
 
-CREATE TRIGGER add_giaban AFTER INSERT ON monan 
+drop trigger if exists update_giaban;
+DELIMITER $$
+CREATE TRIGGER update_giaban AFTER UPDATE ON noidung_donhang
 FOR EACH ROW
-  UPDATE noidung_donhang
-     SET Giamua = NEW.GiaBan
-   WHERE ID_monan = NEW.IDMonAn;
+BEGIN
+	UPDATE hoadon
+    SET Phidonhang = TONGTIENDONHANG(id)
+    WHERE id = NEW.ID_donhang;
+END $$
+DELIMITER ;
 
-CREATE TRIGGER update_giaban AFTER UPDATE ON monan 
-FOR EACH ROW
-  UPDATE noidung_donhang
-     SET Giamua = NEW.GiaBan
-   WHERE ID_monan = NEW.IDMonAn;
+UPDATE noidung_donhang
+SET Giamua = 10000000
+WHERE ID_donhang = 1 AND ID_monan = 1

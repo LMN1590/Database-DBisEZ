@@ -3,7 +3,6 @@ DELIMITER $
 create procedure addHoaDon(
 	new_id int,
     phuongthuc varchar(255),
-    phidonhang int,
     phigiaohang int,
     IDdonhang int
 )
@@ -11,13 +10,17 @@ begin
 	-- Check existing ID
     declare countID int default 0;
     declare countIDdonhang int default 0;
+	declare phidonhang int default 0;
+
     set countID=(select count(id) from hoadon where id=new_id);
     set countIDdonhang=(select count(id) from donhang where id=IDdonhang);
+	set phidonhang = TONGTIENDONHANG(IDdonhang);
+
     if countID > 0 then
 		SELECT  CONCAT('ID của bạn(',new_id,') đã tồn tại.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
 		select concat('Phương thức của bạn(',phuongthuc,') phải là \"Trực tiếp\" hoặc \"Online\".') AS 'RES';
-	elseif phidonhang%1000!=0 then
+	elseif phidonhang%500!=0 then
 		select concat('Tiền đơn hàng của bạn(',phidonhang,') quá lẻ.') AS 'RES';
 	elseif phigiaohang%500!=0 then
 		select concat('Tiền đơn hàng của bạn(',phigiaohang,') quá lẻ.') AS 'RES';
@@ -47,7 +50,6 @@ end $
 create procedure updateHoadonByID(
 	selected_id int,
     phuongthuc varchar(255),
-    phidonhang int,
     phigiaohang int,
     IDdonhang int
 )
@@ -55,8 +57,11 @@ begin
 	-- Check existing ID
     declare countID int default 0;
     declare countIDdonhang int default 0;
+	declare phidonhang int default 0;
+
     set countID=(select count(id) from hoadon where id=selected_id);
     set countIDdonhang=(select count(id) from donhang where id=IDdonhang);
+	set phidonhang = TONGTIENDONHANG(IDdonhang);
     if countID = 0 then
 		SELECT  CONCAT('ID của bạn(',selected_id,') không tồn tại trong bảng.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
