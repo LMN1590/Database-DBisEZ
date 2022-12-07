@@ -233,6 +233,8 @@
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
@@ -253,6 +255,8 @@
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
@@ -267,16 +271,23 @@
     }
 
     function addInner(){
+        alert("Thêm một hóa đơn ?");
+        $("#editModal").modal("hide");
         $.ajax({
             method:"post",
             url:"./controller/add.php",
             data:{
-                id:id 
+                id:$("#valID").val(),
+                phuongthuc: $("#valPT").val(),
+                phigiaohang: $("#valTotalShip").val(),
+                IDdonhang: $("#valIDdh").val()
             },
             success: function(data,status){
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
