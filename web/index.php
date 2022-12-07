@@ -54,8 +54,76 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="title d-flex justify-content-between">
+                <h4>Bảng thống kê các hóa đơn</h4>
+                <button class="btn btn-custom">Thêm</button>
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Phương thức</th>
+                        <th scope="col">Phí đơn hàng</th>
+                        <th scope="col">Phí giao hàng</th>
+                        <th scope="col">ID đơn hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="showModal(1);" class="data">
+                        <th scope="row">1</th>
+                        <td>Online</td>
+                        <td>20000</td>
+                        <td>111111</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
 </body>
 </html>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <span class="input-group-text" id="ID">ID</span>
+                    <input type="number" class="form-control" id="valID" disabled>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text" id="Phuongthuc">Phương thức</span>
+                    <input type="text" class="form-control" id="valPT">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text" id="totalCost">Phí đơn hàng</span>
+                    <input type="number" class="form-control" id="valTotalCost" disabled>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text" id="totalShip">Phí giao hàng</span>
+                    <input type="number" class="form-control" id="valTotalShip">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text" id="totalShip">ID đơn hàng</span>
+                    <input type="number" class="form-control" id="valIDdh">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button id="editBtn" type="button" class="btn btn-primary">Sửa</button>
+                <button id="delBtn" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function getInfo(type){
         if(type==="online"){
@@ -91,8 +159,66 @@
             });
         }
     }
+    function getAllHD(id){
+        $.ajax({
+            method:"post",
+            url:"./controller/getAllHD.php",
+            data:{
+                id: id
+            },
+            success: function(data,status){
+                console.log(data);
+                data=JSON.parse(data);
+                $("tbody").empty();
+                data.forEach(function(hoadon){
+                    let row=$("<tr onclick=\"showModal("+hoadon['ID']+");\" class=\"data\"></tr>");
+                    
+                    let headerID=$("<th scope=\"row\"></th>").html(hoadon['ID']);
+                    row.append(headerID);
+
+                    let phuongthuc=$("<td></td>").html(hoadon['Phuongthuc']);
+                    row.append(phuongthuc);
+
+                    let totalCost = $("<td></td>").html(hoadon['Phidonhang']);
+                    row.append(totalCost);
+                    
+                    let totalShip=$("<td></td>").html(hoadon['Phigiaohang']);
+                    row.append(totalShip);
+
+                    let idDon=$("<td></td>").html(hoadon['ID_donhang']);
+                    row.append(idDon);
+
+                    $("tbody").append(row);
+                });
+            }
+        });
+    }
+    function showModal(id){
+        $.ajax({
+            method:"post",
+            url:"./controller/getAllHD.php",
+            data:{
+                id: id
+            },
+            success: function(data,status){
+                console.log(data);
+                data=JSON.parse(data);
+                hoadon=data[0];
+                $(".modal-title").html("Chỉnh sửa thông tin cho hóa đơn "+String(hoadon['ID']));
+                $("#valID").val(hoadon['ID']);
+                $("#valPT").val(hoadon['Phuongthuc']);
+                $("#valTotalCost").val(hoadon['Phidonhang']);
+                $("#valTotalShip").val(hoadon['Phigiaohang']);
+                $("#valIDdh").val(hoadon['ID_donhang']);
+                $("#editModal").modal("show");
+                $("#editBtn").attr("onclick","edit("+String(hoadon['ID']+")"));
+                $("#delBtn").attr("onclick","del("+String(hoadon['ID']+")"));
+            }
+        });
+    }
     $(window).on('load',function(){
         getInfo("online");
         getInfo("real");
+        getAllHD(0);
     });
 </script>
