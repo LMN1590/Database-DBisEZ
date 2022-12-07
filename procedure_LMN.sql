@@ -69,7 +69,7 @@ begin
 		select concat('Mã đơn hàng được nhập(',IDdonhang,') không tồn tại.') AS 'RES';
 	else
 		update hoadon
-        set hoadon.Phươngthuc=phuongthuc, hoadon.Phidonhang=phidonhang, hoadon.Phigiaohang=phigiaohang, hoadon.ID_donhang=IDdonhang
+        set hoadon.Phuongthuc=phuongthuc, hoadon.Phidonhang=phidonhang, hoadon.Phigiaohang=phigiaohang, hoadon.ID_donhang=IDdonhang
         where hoadon.ID=selected_id;
         select "Thay đổi thành công" AS 'RES';
 	end if;
