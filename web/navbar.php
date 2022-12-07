@@ -21,7 +21,7 @@
                 From team DBisEZ
             </h6>
             <p>
-                <a href="#" style="color:white; font-size: 20px; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com/LMN1590/Database-DBisEZ" target="_blank" style="color:white; font-size: 20px; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
             </p>
         </div>
         
