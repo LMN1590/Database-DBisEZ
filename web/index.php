@@ -233,6 +233,8 @@
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
@@ -253,6 +255,8 @@
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
@@ -282,6 +286,8 @@
                 console.log(data);
                 alert(data);
                 getAllHD(0);
+                getInfo("online");
+                getInfo("real");
             }
         });
     }
