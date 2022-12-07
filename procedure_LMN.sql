@@ -61,7 +61,7 @@ begin
 
     set countID=(select count(id) from hoadon where id=selected_id);
     set countIDdonhang=(select count(id) from donhang where id=IDdonhang);
-	set phidonhang = TONGTIENDONHANG(IDdonhang)
+	set phidonhang = TONGTIENDONHANG(IDdonhang);
     if countID = 0 then
 		SELECT  CONCAT('ID của bạn(',selected_id,') không tồn tại trong bảng.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
