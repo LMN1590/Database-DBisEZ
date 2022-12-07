@@ -13,6 +13,7 @@ begin
     declare countIDdonhang int default 0;
     set countID=(select count(id) from hoadon where id=new_id);
     set countIDdonhang=(select count(id) from donhang where id=IDdonhang);
+	set phidonhang = TONGTIENDONHANG(id);
     if countID > 0 then
 		SELECT  CONCAT('ID của bạn(',new_id,') đã tồn tại.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
