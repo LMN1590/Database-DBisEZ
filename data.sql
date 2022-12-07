@@ -281,7 +281,7 @@ INSERT INTO Donhang VALUES (11,'Danh Nguyen','Đã giao','Thêm tí đá','268 L
 -- Hoa don
 INSERT INTO Hoadon VALUES (1,'Trực tiếp',54000,15000,1);
 INSERT INTO Hoadon VALUES (2,'Trực tiếp',260000,16000,2);
-INSERT INTO Hoadon VALUES (3,'Online',31500,23000,3);
+INSERT INTO Hoadon VALUES (3,'Online',135000,23000,3);
 INSERT INTO Hoadon VALUES (4,'Online',655000,25000,4);
 INSERT INTO Hoadon VALUES (5,'Online',110000,48000,5);
 INSERT INTO Hoadon VALUES (6,'Trực tiếp',410000,17000,6);
