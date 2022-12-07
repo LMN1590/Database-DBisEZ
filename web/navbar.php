@@ -46,11 +46,11 @@
                 <a class="list-group-item list-group-item-action list-btn">
                     <i class="fa-solid fa-money-bill"></i> Quản lý hóa đơn
                 </a>
-                <a type="button" class="list-group-item list-group-item-action list-btn">
-                    <i class="fa-solid fa-motorcycle"></i> Lọc hóa đơn theo phương thức thanh toán
+                <a type="button" class="list-group-item list-group-item-action list-btn" href="/procedure_1.php">
+                    <i class="fa-solid fa-motorcycle"></i> Lọc đơn hàng theo phương thức thanh toán
                 </a>
                 <a type="button" class="list-group-item list-group-item-action list-btn" href="/function.php">
-                    <i class="fa-solid fa-bowl-food"></i> Nguyên liệu của đơn hàng
+                    <i class="fa-solid fa-bowl-food"></i> Lọc hóa đơn theo thông tin người nhận
                 </a>
             </div>
         </div>
