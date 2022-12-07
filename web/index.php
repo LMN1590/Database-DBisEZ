@@ -241,7 +241,10 @@
             method:"post",
             url:"./controller/edit.php",
             data:{
-                id:id 
+                selected_id:id,
+                phuongthuc: $("#valPT").val(),
+                phigiaohang: $("#valTotalShip").val(),
+                IDdonhang: $("#valIDdh").val()
             },
             success: function(data,status){
                 console.log(data);
