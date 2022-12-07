@@ -61,7 +61,7 @@ begin
 
     set countID=(select count(id) from hoadon where id=selected_id);
     set countIDdonhang=(select count(id) from donhang where id=IDdonhang);
-	set phidonhang = TONGTIENDONHANG(IDdonhang)
+	set phidonhang = TONGTIENDONHANG(IDdonhang);
     if countID = 0 then
 		SELECT  CONCAT('ID của bạn(',selected_id,') không tồn tại trong bảng.') AS 'RES';
 	ELSEIF  not(phuongthuc='Trực tiếp' or phuongthuc ='Online') then
@@ -83,16 +83,20 @@ DELIMITER ;
 -- Test
 -- Insert
 -- -- Bình thường
-call addHoadon(11,"Trực tiếp",15000,2000,2);
+
+drop procedure addHoaDon;
+drop procedure updateHoadonByID;
+drop procedure removeHoadonByID;
+call addHoadon(11,"Trực tiếp",2000,2);
 -- -- Trùng ID
-call addHoadon(11,"Trực tiếp",15000,2000,2);
+call addHoadon(11,"Trực tiếp",2000,2);
 -- -- Sai phương thức
-call addHoadon(12,"Thẻ",15000,2000,2);
+call addHoadon(12,"Thẻ",2000,2);
 -- -- Số tiền quá lẻ
-call addHoadon(13,"Online",15010,2000,2);
-call addHoadon(14,"Online",15000,2020,2);
+call addHoadon(13,"Online",2000,2);
+call addHoadon(14,"Online",2020,2);
 -- -- Mã đơn hàng không tồn tại
-call addHoadon(15,"Online",15000,2000,200);
+call addHoadon(15,"Online",2000,200);
 
 -- Delete
 -- -- Bình thường
@@ -102,13 +106,13 @@ call removeHoadonByID(101);
 
 -- Update
 -- -- Bình thường
-call updateHoadonByID(10,"Trực tiếp",15000,2000,2);
+call updateHoadonByID(10,"Trực tiếp",2000,2);
 -- -- Không tồn tại ID
-call updateHoadonByID(110,"Trực tiếp",15000,2000,2);
+call updateHoadonByID(110,"Trực tiếp",2000,2);
 -- -- Sai phương thức
-call updateHoadonByID(10,"Thẻ",15000,2000,2);
+call updateHoadonByID(10,"Thẻ",2000,2);
 -- -- Số tiền quá lẻ
-call updateHoadonByID(10,"Online",15010,2000,2);
-call updateHoadonByID(10,"Online",15000,2020,2);
+call updateHoadonByID(10,"Online",2000,2);
+call updateHoadonByID(10,"Online",2020,2);
 -- -- Mã đơn hàng không tồn tại
-call updateHoadonByID(10,"Online",15000,2000,200);
+call updateHoadonByID(10,"Online",2000,200);
