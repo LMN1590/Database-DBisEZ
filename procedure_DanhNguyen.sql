@@ -9,7 +9,7 @@ begin
 	if Phuongthuc != "Trực tiếp" and Phuongthuc != "Online" then
 		select "Phương thức này không tồn tại" as "Thông báo lỗi";
 	else
-		select K.Ho, K.Ten, D.ID as IDdonhang, H.Phuongthuc from (Hoadon as H inner join Donhang as D on H.ID_donhang = D.ID) 
+		select K.IDtaikhoan, K.Ho, K.Ten, D.ID as IDdonhang, H.ID as IDhoadon, H.Phuongthuc from (Hoadon as H inner join Donhang as D on H.ID_donhang = D.ID) 
 		inner join khachhang as K on K.IDtaikhoan = D.ID_nguoinhan
 		where H.Phuongthuc = Phuongthuc
 		order by D.ID;
