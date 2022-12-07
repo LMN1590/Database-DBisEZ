@@ -43,16 +43,16 @@
         </div>
         <div class="dropdown mt-3">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action list-btn">
+                <a class="list-group-item list-group-item-action list-btn">
                     <i class="fa-solid fa-money-bill"></i> Quản lý hóa đơn
-                </button>
-                <button type="button" class="list-group-item list-group-item-action list-btn">
+                </a>
+                <a type="button" class="list-group-item list-group-item-action list-btn">
                     <i class="fa-solid fa-motorcycle"></i> Lọc hóa đơn theo phương thức thanh toán
-                </button>
-                <button type="button" class="list-group-item list-group-item-action list-btn">
+                </a>
+                <a type="button" class="list-group-item list-group-item-action list-btn" href="/function.php">
                     <i class="fa-solid fa-bowl-food"></i> Nguyên liệu của đơn hàng
-                </button>
+                </a>
             </div>
         </div>
     </div>
-</div>    
+</div>
