@@ -216,6 +216,40 @@
             }
         });
     }
+
+    function del(id){
+        alert("Xóa hóa đơn có ID: "+String(id)+"?");
+        $("#editModal").modal("hide");
+        $.ajax({
+            method:"post",
+            url:"./controller/remove.php",
+            data:{
+                id:id 
+            },
+            success: function(data,status){
+                console.log(data);
+                alert(data);
+                getAllHD(0);
+            }
+        });
+    }
+
+    function edit(id){
+        alert("Chỉnh hóa đơn có ID: "+String(id)+"?");
+        $("#editModal").modal("hide");
+        $.ajax({
+            method:"post",
+            url:"./controller/edit.php",
+            data:{
+                id:id 
+            },
+            success: function(data,status){
+                console.log(data);
+                alert(data);
+                getAllHD(0);
+            }
+        });
+    }
     $(window).on('load',function(){
         getInfo("online");
         getInfo("real");
