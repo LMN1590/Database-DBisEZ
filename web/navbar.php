@@ -43,7 +43,7 @@
         </div>
         <div class="dropdown mt-3">
             <div class="list-group">
-                <a class="list-group-item list-group-item-action list-btn">
+                <a class="list-group-item list-group-item-action list-btn" href="/index.php">
                     <i class="fa-solid fa-money-bill"></i> Quản lý hóa đơn
                 </a>
                 <a type="button" class="list-group-item list-group-item-action list-btn" href="/procedure.php">
