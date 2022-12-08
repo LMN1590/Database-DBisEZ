@@ -67,6 +67,9 @@
                             ';
                         }
                     }
+                    else {
+                        echo '<script>alert("Không tồn tại khách hàng này")</script>';
+                    }
                 }
                 ?>
             </tbody>
