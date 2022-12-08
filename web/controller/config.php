@@ -1,7 +1,7 @@
 <?php
   $servername = "localhost:3306";
   $username = "root";
-  $password = "";
+  $password = "@MSN8910FCBarca";
   $dbname = "ass_db";
 
   $conn = mysqli_connect($servername, $username, $password, $dbname);
