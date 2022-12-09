@@ -1,5 +1,5 @@
-CREATE DATABASE ASS_DB;
-USE ASS_DB;
+CREATE DATABASE ass_db;
+USE ass_db;
 
 CREATE TABLE taikhoan (
 	idtaikhoan int PRIMARY KEY, 

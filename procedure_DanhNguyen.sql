@@ -44,4 +44,4 @@ DELIMITER ;
 call Hoadoncophuongthuc("Online");
 
 -- Thủ tục 2
-call SonguyenlieuthuocmotDonhang(3, 0);
+call SonguyenlieuthuocmotDonhang(3, 45000);

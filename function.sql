@@ -27,7 +27,7 @@ END $$
 DELIMITER ;
 
 
-SELECT TONGSOKHUYENMAI(40);
+SELECT TONGSOKHUYENMAI(23);
 
 
 -- Viết Function tính tiền đơn hàng có khuyến mãi

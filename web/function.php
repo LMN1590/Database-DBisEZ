@@ -38,37 +38,46 @@
                 <?php
                 if (isset($_POST['ID'])) {
                     $id = $_POST['ID'];
-                    require_once('controller\config.php');
-                    $query = '';
-                    if ($id == '') {
-                        $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
-                                    FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID';
+                    if (!is_numeric($id)) {
+                        echo '<script>alert("ID phải là số nguyên")</script>';
                     }
                     else {
-                        $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
-                                    FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID
-                                    WHERE D.ID_nguoinhan=' . $id;   
-                    }
-                    $res = $conn->query($query);
-                    if ($res->num_rows > 0) {
-                        while ($row = $res->fetch_assoc()) {
-                            $price_query = 'SELECT TONGTIENDONHANG(' . $row['ID_donhang'] .')';
-                            $total = $conn->query($price_query);
-                            $total_res = $total->fetch_assoc();
-                            echo '
-                            <tr>
-                                <th scope="row">' . $row['ID_nguoinhan'] .'</th>
-                                <td>' . $row['ID'] .'</td>
-                                <td>' . $row['ID_donhang'] . '</td>
-                                <td>' . $row['Phuongthuc'] .'</td>
-                                <td>' . $total_res['TONGTIENDONHANG(' . $row['ID_donhang'] .')'] . '</td>
-                                <td>' . $row['Phigiaohang'] . '</td>
-                            </tr>
-                            ';
+                        require_once('controller\config.php');
+                        $query = '';
+                        if ($id == '') {
+                            $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
+                                        FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID';
                         }
-                    }
-                    else {
-                        echo '<script>alert("Không tồn tại khách hàng này")</script>';
+                        else {
+                            $query = 'SELECT D.ID_nguoinhan, H.ID, Phuongthuc, Phidonhang, Phigiaohang, ID_donhang 
+                                        FROM Hoadon as H INNER JOIN Donhang as D ON H.ID_donhang = D.ID
+                                        WHERE D.ID_nguoinhan=' . $id;   
+                        }
+                        $res = $conn->query($query);
+                        if ($res->num_rows > 0) {
+                            while ($row = $res->fetch_assoc()) {
+                                $price_query = 'SELECT TONGTIENDONHANG(' . $row['ID_donhang'] .')';
+                                $total = $conn->query($price_query);
+                                $total_res = $total->fetch_assoc();
+                                echo '
+                                <tr>
+                                    <th scope="row">' . $row['ID_nguoinhan'] .'</th>
+                                    <td>' . $row['ID'] .'</td>
+                                    <td>' . $row['ID_donhang'] . '</td>
+                                    <td>' . $row['Phuongthuc'] .'</td>
+                                    <td>' . $total_res['TONGTIENDONHANG(' . $row['ID_donhang'] .')'] . '</td>
+                                    <td>' . $row['Phigiaohang'] . '</td>
+                                </tr>
+                                ';
+                            }
+                        }
+                        else {
+                            $query = 'SELECT * FROM khachhang WHERE IDtaikhoan = ' . $id;
+                            $res = $conn->query($query);
+                            if ($res->num_rows == 0) {
+                                echo '<script>alert("Không tồn tại khách hàng này")</script>';    
+                            }
+                        }
                     }
                 }
                 ?>

@@ -1,4 +1,7 @@
-USE ass_db
+USE ass_db;
+drop procedure if exists addHoaDon;
+drop procedure if exists updateHoadonByID;
+drop procedure if exists removeHoadonByID;
 DELIMITER $	
 create procedure addHoaDon(
 	new_id int,
@@ -85,9 +88,6 @@ DELIMITER ;
 -- Insert
 -- -- Bình thường
 
-drop procedure addHoaDon;
-drop procedure updateHoadonByID;
-drop procedure removeHoadonByID;
 call addHoadon(11,"Trực tiếp",2000,2);
 -- -- Trùng ID
 call addHoadon(11,"Trực tiếp",2000,2);
@@ -101,7 +101,7 @@ call addHoadon(15,"Online",2000,200);
 
 -- Delete
 -- -- Bình thường
-call removeHoadonByID(11);
+call removeHoadonByID(13);
 -- -- Không tồn tại ID
 call removeHoadonByID(101);
 
